@@ -14,7 +14,7 @@ def create_user(user_in: UserCreate, db: Session = Depends(get_db)):
         user = UserService.create_user(
             db=db,
             email=user_in.email,
-            hashed_password=user_in.password,  # hashing comes next step
+            password=user_in.password,  # hashing comes next step
         )
         return user
     except ValueError as e:
